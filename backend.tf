@@ -1,9 +1,19 @@
+# terraform {
+#   backend "s3" {
+#     bucket         = "terraform-state-bucket2121"
+#     key            = "terraform.tfstate"
+#     region         = "eu-west-2"
+#     encrypt        = true
+#     dynamodb_table = "terraform-locks"
+#   }
+# }
+
 terraform {
-  backend "s3" {
-    bucket         = "terraform-state-bucket2121"
-    key            = "terraform.tfstate"
-    region         = "eu-west-2"
-    encrypt        = true
-    dynamodb_table = "terraform-locks"
+  cloud {
+    organization = "Academy-project-java-devops"
+
+    workspaces {
+      name = "devops-java-collab"
+    }
   }
 }
